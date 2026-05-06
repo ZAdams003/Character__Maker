@@ -3,7 +3,7 @@ Simple character maker, similar to picrews
 # Character Maker
 
 ## Repository
-[<Link to your project's public GitHub respository>]
+[<Link to your project's public GitHub respository>] https://github.com/ZAdams003/Character__Maker
 
 ## Description
 This program will create a character customization game, it'll use hand drawn sprites (created by me) and other hand drawn assets (all created by me). 
