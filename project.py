@@ -187,31 +187,31 @@ def button_options():
     x = 70
     for name, image in shirts.items():
         thumbnail = pygame.transform.scale(image, (80, 80))
-        buttons.append(Button(x, 150, thumbnail, name, "shirt"))
+        buttons.append(Button(x, 250, thumbnail, name, "shirt"))
         x += 50
     #Hairs
     x = 70
     for name, image in hairs.items():
         thumbnail = pygame.transform.scale(image, (80, 80))
-        buttons.append(Button(x, 150, thumbnail, name, "hair"))
+        buttons.append(Button(x, 350, thumbnail, name, "hair"))
         x += 50
     #Eyes
     x = 70
     for name, image in eyes.items():
         thumbnail = pygame.transform.scale(image, (80, 80))
-        buttons.append(Button(x, 150, thumbnail, name, "eye"))
+        buttons.append(Button(x, 450, thumbnail, name, "eye"))
         x += 50
     #Noses
     x = 70
     for name, image in noses.items():
         thumbnail = pygame.transform.scale(image, (80, 80))
-        buttons.append(Button(x, 150, thumbnail, name, "nose"))
+        buttons.append(Button(x, 550, thumbnail, name, "nose"))
         x += 50
     #Eyebrows
     x = 70
     for name, image in eyebrows.items():
         thumbnail = pygame.transform.scale(image, (80, 80))
-        buttons.append(Button(x, 150, thumbnail, name, "eyebrow"))
+        buttons.append(Button(x, 650, thumbnail, name, "eyebrow"))
         x += 50
 
     #Save button
