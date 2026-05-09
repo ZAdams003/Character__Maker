@@ -43,3 +43,6 @@ Minimal Viable Outcome:
 - Week N (Final)
   1. Finalize any small details
   2. Final optimizations and turn in!
+
+  ## Youtube Link
+  
