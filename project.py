@@ -220,3 +220,79 @@ def button_options():
 
 buttons, save_button_rect = button_options()
 
+selected_skintone = None
+selected_shirt = None
+selected_hair = None
+selected_eye = None
+selected_nose = None
+selected_eyebrow = None
+fullscreen = False
+
+#Game loop
+running = True
+
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_f:
+                fullscreen = not fullscreen
+                if fullscreen:
+                    window = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN | pygame.RESIZABLE)
+                else:
+                    window = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
+            elif event.key == pygame.K_ESCAPE:
+                running = False
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            if save_button_rect.rect.collidepoint(event.pos):
+                pygame.image.save(window, "your_charactercreation.png")
+                print("Your character saved as 'your_charactercreation.png' in images folder!")
+            else:
+                for button in buttons:
+                    if button.rect.collidepoint(event.pos):
+                        if button.item_type == "skintone":
+                            selected_skintone = skintones[button.item_name]
+                        elif button.item_type == "shirt":
+                            selected_shirt = shirts[button.item_name]
+                        elif button.item_type == "hair":
+                            selected_hair = hairs[button.item_name]
+                        elif button.item_type == "eye":
+                            selected_eye = eyes[button.item_name]
+                        elif button.item_type == "nose":
+                            selected_nose = noses[button.item_name]
+                        elif button.item_type == "eyebrow":
+                            selected_eyebrow = eyebrows[button.item_name]
+
+    window.blit(background, (0, 0))
+#Base img
+    window.blit(character, BODY_POS)
+#Skintones first placed on top of white base character
+    if selected_skintone:
+        window.blit(selected_skintone, SKINTONE_POS)
+#Shirt on top of skin
+    if selected_shirt:
+        window.blit(selected_shirt, SHIRT_POS)
+#Eyes on top of skintone and under hair
+    if selected_eye:
+        window.blit(selected_eye, EYE_POS)
+#Nose
+    if selected_nose:
+        window.blit(selected_nose, NOSE_POS)
+#Eyebrows
+    if selected_eyebrow:
+        window.blit(selected_eyebrow, EYEBROW_POS)
+#Hair over everything else
+    if selected_hair:
+        window.blit(selected_hair, HAIR_POS)
+#Draw in all buttons
+    for button in buttons:
+        button.draw()
+
+    save_button_rect.draw()
+
+    pygame.display.update()
+    clock.tick(60)
+
+pygame.quit()
+                        
