@@ -162,3 +162,61 @@ character, skintones, shirts, hairs, eyes, noses, eyebrows = load_imgs()
 background = background_img()
 save_button = load_save_button()
 
+# Button class
+class Button:
+    def __init__(self, x, y, image, item_name, item_type):
+        self.image = image
+        self.rect = image.get_rect(topleft=(x, y))
+        self.item_name = item_name
+        self.item_type = item_type
+
+    def draw(self):
+        window.blit(self.image, self.rect)
+
+# Buttons for selections
+def button_options():
+    buttons = []
+
+    #Skintones
+    x = 70
+    for name, image in skintones.items():
+        thumbnail = pygame.transform.scale(image, (80, 80))
+        buttons.append(Button(x, 150, thumbnail, name, "skintone"))
+        x += 50
+    #Shirts
+    x = 70
+    for name, image in shirts.items():
+        thumbnail = pygame.transform.scale(image, (80, 80))
+        buttons.append(Button(x, 150, thumbnail, name, "shirt"))
+        x += 50
+    #Hairs
+    x = 70
+    for name, image in hairs.items():
+        thumbnail = pygame.transform.scale(image, (80, 80))
+        buttons.append(Button(x, 150, thumbnail, name, "hair"))
+        x += 50
+    #Eyes
+    x = 70
+    for name, image in eyes.items():
+        thumbnail = pygame.transform.scale(image, (80, 80))
+        buttons.append(Button(x, 150, thumbnail, name, "eye"))
+        x += 50
+    #Noses
+    x = 70
+    for name, image in noses.items():
+        thumbnail = pygame.transform.scale(image, (80, 80))
+        buttons.append(Button(x, 150, thumbnail, name, "nose"))
+        x += 50
+    #Eyebrows
+    x = 70
+    for name, image in eyebrows.items():
+        thumbnail = pygame.transform.scale(image, (80, 80))
+        buttons.append(Button(x, 150, thumbnail, name, "eyebrow"))
+        x += 50
+
+    #Save button
+    save_button_rect = Button(940, 900, save_button, "save", "save")
+    return buttons, save_button_rect
+
+buttons, save_button_rect = button_options()
+
