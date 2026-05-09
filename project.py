@@ -3,14 +3,12 @@ import pygame
 pygame.init()
 
 # Window:
-
 WIDTH, HEIGHT = 1200, 1200
 window = pygame.display.set_mode((WIDTH, HEIGHT), pygame.RESIZABLE)
 pygame.display.set_caption("Character Maker")
 clock = pygame.time.Clock()
 
 # Positions of assets
-
 BODY_POS = (200, 250)
 SKINTONE_POS = BODY_POS
 SHIRT_POS = BODY_POS
@@ -20,12 +18,11 @@ NOSE_POS = BODY_POS
 EYEBROW_POS = BODY_POS
 
 # Loading the images
-
 def load_imgs():
     # White Base character img
     character = pygame.image.load("images/base01.png").convert_alpha()
     character = pygame.transform.scale(character, (800, 800))
-
+    
     #Skintone options
     skintones = {
         "base2": pygame.transform.scale(
@@ -41,7 +38,6 @@ def load_imgs():
             (800, 800)
         )
     }
-
     #Shirt options
     shirts = {
         "blue": pygame.transform.scale(
@@ -57,7 +53,6 @@ def load_imgs():
             (800, 800)
         ),
     }
-
     #Hair options
     hairs = {
         "blond1": pygame.transform.scale(
@@ -85,7 +80,6 @@ def load_imgs():
             (800, 800)
         )
     }
-
     #Eye options
     eyes = {
         "blueeyes1": pygame.transform.scale(
@@ -113,7 +107,6 @@ def load_imgs():
             (800, 800)
         )
     }
-
     #Nose options
     noses = {
         "nose1": pygame.transform.scale(
@@ -129,7 +122,6 @@ def load_imgs():
             (800, 800)
         )
     }
-
     #Eyebrow options
     eyebrows = {
         "blondbrow1": pygame.transform.scale(
@@ -176,7 +168,6 @@ class Button:
 # Buttons for selections
 def button_options():
     buttons = []
-
     #Skintones
     x = 70
     for name, image in skintones.items():
@@ -295,4 +286,3 @@ while running:
     clock.tick(60)
 
 pygame.quit()
-                        
